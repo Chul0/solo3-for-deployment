@@ -62,36 +62,55 @@ function App(props) {
        path="/brands"
        exact
        render={()=>{
-         return <Brands />
+         if(user.id){
+           return <Brands />
+         }else{
+          return <Redirect to="/" />
+         }
        }}
       />
 
       <Route 
        path="/myboard"
        render={()=>{
-         return <MyBoard />
+        if(user.id){
+          return <MyBoard />
+        }else{
+         return <Redirect to="/" />
+        }
        }}
       />
 
       <Route 
        path="/profile"
        render={()=>{
-         return <Profile />
+        if(user.id){
+          return <Profile />
+        }else{
+         return <Redirect to="/" />
+        }
        }}
       />
 
       <Route 
         path="/brands/:id"
         render={()=>{
-          // console.log('hello form single brand');
-          return <SingleBrand />
+          if(user.id){
+            return <SingleBrand />
+          }else{
+           return <Redirect to="/" />
+          }
         }}
       />
 
       <Route 
         path="/brands/:id/content/:id"
         render={()=>{
-          return <SingleImage />
+          if(user.id){
+            return <SingleImage />
+          }else{
+           return <Redirect to="/" />
+          }
         }} 
       />
 

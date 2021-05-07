@@ -6,6 +6,7 @@ import { UserContext } from '../contexts/UserContext'
 const MyBoard = () => {
     const [user, setUser] =useContext(UserContext)
     const [savedImages, setSavedImages] = useState([])
+    const [shouldReload, setShouldReload ] = useState(true)
 
     const fetchSavedImage= async () =>{
         try {
@@ -31,12 +32,12 @@ const MyBoard = () => {
                     Authorization: localStorage.getItem('userId')
                 }
             })
-            window.location.reload()
+            setShouldReload(!shouldReload)
         } catch (error) {
             console.log({error});
         }
     }
-
+    useEffect(fetchSavedImage,[shouldReload])
 
     return(
         <>
