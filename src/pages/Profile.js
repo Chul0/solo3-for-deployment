@@ -36,7 +36,7 @@ const Profile = () => {
                     Authorization: localStorage.getItem('userId')
                 }
             })
-            console.log(response);
+            // console.log(response);
             setShouldRedirect(true)
             window.location.reload()
         } catch (error) {

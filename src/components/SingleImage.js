@@ -15,9 +15,9 @@ const SingleImage = (props) => {
     const fetchSingleImage = () => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/brandContent/${id}`)
         .then((response) => {
-            console.log(response.data.brandContent.image);
+            // console.log(response.data.brandContent.image);
             setSingleImage(response.data)
-            console.log(user);
+            // console.log(user);
         })
     }
 
@@ -43,8 +43,8 @@ const SingleImage = (props) => {
             }
         })
         .then((response)=>{
-            console.log('you clicked save');
-            console.log(response);
+            // console.log('you clicked save');
+            // console.log(response);
         })
     }
 
